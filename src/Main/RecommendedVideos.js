@@ -68,23 +68,24 @@ const RecommendedVideos = () => {
     <div className="recommendedvideos">
       {isLoading ? (
         <CircularProgress className="loading" color="secondary" />
-      ) : null}
-      <div className="recommendedvideos__videos">
-        {videoCards.map((item) => {
-          return (
-            <Link key={item.videoId} to={`/video/${item.videoId}`}>
-              <VideoCard
-                title={item.title}
-                image={item.image}
-                views={item.views}
-                timestamp={item.timestamp}
-                channel={item.channel}
-                channelImage={item.channelImage}
-              />
-            </Link>
-          );
-        })}
-      </div>
+      ) : (
+        <div className="recommendedvideos__videos">
+          {videoCards.map((item) => {
+            return (
+              <Link key={item.videoId} to={`/video/${item.videoId}`}>
+                <VideoCard
+                  title={item.title}
+                  image={item.image}
+                  views={item.views}
+                  timestamp={item.timestamp}
+                  channel={item.channel}
+                  channelImage={item.channelImage}
+                />
+              </Link>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 };
