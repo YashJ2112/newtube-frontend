@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  newtube-frontend:
+    container_name: newtube-frontend
+    image: newtube-frontend:1.0.0
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 3002:3002
+    env_file:
+      - .env
+    volumes:
+      - ./pages:/app/pages
+      - ./public:/app/public
+      - ./styles:/app/styles
