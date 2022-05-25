@@ -30,7 +30,7 @@ jobs:
           envVariableKeys: NEXT_PUBLIC_REACT_APP_YOUTUBE_API_KEY
         env:
           NEXT_PUBLIC_REACT_APP_YOUTUBE_API_KEY: ${{ secrets.NEXT_PUBLIC_REACT_APP_YOUTUBE_API_KEY }}
-          TARGET_MONGODB_URL: preview,development,production # comma delimited, one of [production, preview, development]
+          TARGET_NEXT_PUBLIC_REACT_APP_YOUTUBE_API_KEY: preview,development,production # comma delimited, one of [production, preview, development]
 
       # deploy app to vercel
       - name: deploy site to vercel
