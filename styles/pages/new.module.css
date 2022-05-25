@@ -1,0 +1,33 @@
+.content{
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+}
+.video-box{
+    display: flex;
+    flex-direction: column;
+}
+.video-box input {
+    border-radius: 4px;
+    min-width: 450px;
+    margin: 5px;
+}
+.timer{
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+}
+.controls{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.controls button{
+    margin:10px;
+}
+.controls div{
+    margin: 10px 20px;
+}
+.controls b{
+    font-weight: bold;
+}

@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import VideoCard from "./VideoCard";
-import "./RecommendedVideos.css";
+import styles from "./RecommendedVideos.module.css";
 import axios from "axios";
 import { DateTime } from "luxon";
-import { Link } from "react-router-dom";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Alert from "@material-ui/lab/Alert";
-
+import Link from "next/link";
 const RecommendedVideos = () => {
   const [videoCards, setVideoCards] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -15,7 +14,7 @@ const RecommendedVideos = () => {
   useEffect(() => {
     axios
       .get(
-        `https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=9&regionCode=NL&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`
+        `https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=9&regionCode=NL&key=${process.env.NEXT_PUBLIC_REACT_APP_YOUTUBE_API_KEY}`
       )
       .then((response) => {
         createVideoCards(response.data.items);
@@ -33,7 +32,7 @@ const RecommendedVideos = () => {
       const snippet = video.snippet;
       const channelId = snippet.channelId;
       const response = await axios.get(
-        `https://www.googleapis.com/youtube/v3/channels?part=snippet&id=${channelId}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`
+        `https://www.googleapis.com/youtube/v3/channels?part=snippet&id=${channelId}&key=${process.env.NEXT_PUBLIC_REACT_APP_YOUTUBE_API_KEY}`
       );
       const channelImage = response.data.items[0].snippet.thumbnails.medium.url;
 
@@ -53,34 +52,41 @@ const RecommendedVideos = () => {
         channelImage,
       });
     }
+
     setVideoCards(newVideoCards);
     setIsLoading(false);
   }
 
   if (isError) {
     return (
-      <Alert severity="error" className="loading">
+      <Alert severity="error" className={styles["loading"]}>
         No Results found!
       </Alert>
     );
   }
   return (
-    <div className="recommendedvideos">
+    <div className={styles["recommendedvideos"]}>
       {isLoading ? (
-        <CircularProgress className="loading" color="secondary" />
+        <CircularProgress className={styles["loading"]} color="secondary" />
       ) : (
-        <div className="recommendedvideos__videos">
+        <div className={styles["recommendedvideos__videos"]}>
           {videoCards.map((item) => {
             return (
-              <Link key={item.videoId} to={`/video/${item.videoId}`}>
-                <VideoCard
-                  title={item.title}
-                  image={item.image}
-                  views={item.views}
-                  timestamp={item.timestamp}
-                  channel={item.channel}
-                  channelImage={item.channelImage}
-                />
+              <Link
+                key={item.videoId}
+                href={`/video/${item.videoId}`}
+                passHref
+              >
+                {/* <a> */}
+                  <VideoCard
+                    title={item.title}
+                    image={item.image}
+                    views={item.views}
+                    timestamp={item.timestamp}
+                    channel={item.channel}
+                    channelImage={item.channelImage}
+                  />
+                {/* </a> */}
               </Link>
             );
           })}

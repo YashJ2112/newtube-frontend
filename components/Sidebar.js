@@ -1,5 +1,5 @@
 import React from "react";
-import "./Sidebar.css";
+import styles from "./Sidebar.module.css";
 
 const Sidebar = () => {
   const mainMenus = [
@@ -23,30 +23,30 @@ const Sidebar = () => {
     { text: "Live", icon: "fas fa-broadcast-tower" },
   ];
   return (
-    <div className="sidebar">
-      <ul className="menu-group">
+    <div className={styles["sidebar"]}>
+      <ul className={styles["menu-group"]}>
         {mainMenus.map((menu) => (
-          <li className="menu-item">
+          <li key={menu.text} className={styles["menu-item"]}>
             <i className={menu.icon}></i>
-            <span className="text">{menu.text}</span>
+            <span className={styles["text"]}>{menu.text}</span>
           </li>
         ))}
       </ul>
-      <h4 className="menu-group-label">Library</h4>
-      <ul className="menu-group">
+      <h4 className={styles["menu-group-label"]}>Library</h4>
+      <ul className={styles["menu-group"]}>
         {libraryMenus.map((menu) => (
-          <li className="menu-item">
+          <li key={menu.text} className={styles["menu-item"]}>
             <i className={menu.icon}></i>
-            <span className="text">{menu.text}</span>
+            <span className={styles["text"]}>{menu.text}</span>
           </li>
         ))}
       </ul>
-      <h4 className="menu-group-label">Best of Youtube</h4>
-      <ul className="menu-group">
+      <h4 className={styles["menu-group-label"]}>Best of Youtube</h4>
+      <ul className={styles["menu-group"]}>
         {bestMenus.map((menu) => (
-          <li className="menu-item">
+          <li key={menu.text} className={styles["menu-item"]}>
             <i className={menu.icon}></i>
-            <span className="text">{menu.text}</span>
+            <span className={styles["text"]}>{menu.text}</span>
           </li>
         ))}
       </ul>

@@ -40,18 +40,18 @@
 // export default VideoRow;
 
 import React from "react";
-import "./VideoRow.css";
+import styles from "./VideoRow.module.css";
 
 const VideoRow = ({ views, description, timestamp, channel, title, image }) => {
   return (
-    <div className="videorow">
+    <div className={styles["videorow"]}>
       <img src={image} alt="" />
-      <div className="videorow__text">
+      <div className={styles["videorow__text"]}>
         <h3>{title}</h3>
-        <p className="videorow__headline">
+        <p className={styles["videorow__headline"]}>
           {channel} • {views} views • {timestamp}
         </p>
-        <p className="videorow__description">{description}</p>
+        <p className={styles["videorow__description"]}>{description}</p>
       </div>
     </div>
   );

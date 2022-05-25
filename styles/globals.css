@@ -132,19 +132,9 @@ table {
   font-family: "Product Sans";
   font-weight: 500;
   src: local("Product Sans"),
-    url(./fonts/Product\ Sans\ Regular.ttf) format("truetype");
+    url(/fonts/Product\ Sans\ Regular.ttf) format("truetype");
 }
 
 body {
   font-family: "Product Sans";
 }
-
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities; */
-
-/* @layer components {
-  .btn-primary {
-    @apply py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
-  }
-} */

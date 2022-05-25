@@ -80,9 +80,13 @@
 }
 
 .upload-btn {
-  padding: 10px 20px;
+  padding: 10px 15px;
   border: none;
   border-radius: 5px;
   background: black;
   color: white;
+}
+
+.upload-btn i {
+  margin-left: 5px;
 }
