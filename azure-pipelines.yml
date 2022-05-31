@@ -11,7 +11,7 @@ resources:
 variables:
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: 'a684c2d7-0b88-4bca-b38a-473873de3e9a'
-  imageRepository: 'newtubefrontend'
+  imageRepository: 'newtube-frontend'
   containerRegistry: 'newtube.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   tag: '$(Build.BuildId)'
