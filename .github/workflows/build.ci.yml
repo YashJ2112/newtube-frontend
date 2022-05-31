@@ -1,5 +1,4 @@
-name: CI and deploy nwetube to vercel
-
+name: Build
 on:
   push:
     branches: [main]
@@ -44,7 +43,6 @@ jobs:
           NEXT_PUBLIC_REACT_APP_YOUTUBE_API_KEY: ${{ secrets.NEXT_PUBLIC_REACT_APP_YOUTUBE_API_KEY }}
           TARGET_NEXT_PUBLIC_REACT_APP_YOUTUBE_API_KEY: preview,development,production # comma delimited, one of [production, preview, development]
           TYPE_NEXT_PUBLIC_REACT_APP_YOUTUBE_API_KEY: encrypted # one of [plain, encrypted]
-
       # deploy app to vercel
       - name: deploy site to vercel
         uses: amondnet/vercel-action@v20
