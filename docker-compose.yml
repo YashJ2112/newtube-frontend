@@ -3,7 +3,7 @@ version: "3"
 services:
   newtube-frontend:
     container_name: newtube-frontend
-    image: newtube-frontend:1.0.0
+    image: newtube.azurecr.io/newtube-frontend:1.0.0
     build:
       context: .
       dockerfile: Dockerfile

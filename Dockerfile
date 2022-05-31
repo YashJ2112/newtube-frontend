@@ -27,12 +27,10 @@ COPY public ./public
 
 COPY styles ./styles
 
-# build app
+# build the app
 RUN npm run build
 
-# run app
-# RUN npm run start
-EXPOSE 3002
+EXPOSE 3000
 
 # Running the app
 CMD ["npm", "run", "start"]
