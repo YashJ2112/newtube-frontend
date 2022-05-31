@@ -87,8 +87,8 @@ video {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
   font: inherit;
+  font-size: 100%;
   vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -107,6 +107,7 @@ section {
 }
 body {
   line-height: 1;
+  font-family: "Product Sans";
 }
 ol,
 ul {
@@ -133,8 +134,4 @@ table {
   font-weight: 500;
   src: local("Product Sans"),
     url(/fonts/Product\ Sans\ Regular.ttf) format("truetype");
-}
-
-body {
-  font-family: "Product Sans";
 }

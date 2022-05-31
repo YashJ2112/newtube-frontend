@@ -54,14 +54,10 @@
 
 .header-right {
   display: flex;
+  align-items: center;
   margin-left: auto;
   justify-content: space-between;
   width: 300px;
-}
-
-.header-right {
-  display: flex;
-  align-items: center;
 }
 
 .user-info > * {
