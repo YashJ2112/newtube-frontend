@@ -15,6 +15,17 @@ jobs:
           node-version: "12.x"
       - name: Install NPM dependencies
         run: npm install
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/node@master
+        continue-on-error: true # To make sure that SARIF upload gets called
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          args: --severity-threshold=high
   sonarcloud:
     name: SonarCloud
     runs-on: ubuntu-latest
